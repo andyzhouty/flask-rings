@@ -10,6 +10,8 @@ flask = "*"
 pytest = "*"
 pytest-cov = "*"
 black = "*"
+sphinx = "*"
+pygments = "*"
 
 [requires]
 python_version = "3.9"

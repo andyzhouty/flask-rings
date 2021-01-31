@@ -1,0 +1,50 @@
+Basic Usage
+===========
+
+Installation
+------------
+
+As I haven't published ``flask-rings`` to pypi yet, you can only install flask-rings by this:
+
+.. code:: bash
+
+    pip install git+https://github.com/pydata/pandas-datareader.git
+
+Initialization
+--------------
+
+.. code:: python
+
+    from flask_rings import Rings
+    from flask import Flask
+
+    app = Flask(__name__)
+
+    rings = Rings(app)
+
+or 
+
+.. code:: python
+
+    from flask import Flask
+    from flask_rings import Rings
+
+    rings = Rings()
+
+    def create_app():
+        app = Flask(__name__)
+        rings.init_app(app)
+
+
+Resource loader
+-----------------
+
+Flask-Rings a helper for loading the CSS of Rings.
+Call it in your base template, for example:
+
+.. code-block:: jinja
+
+    <head>
+        ...
+        {{ rings.load() }}
+    </head>

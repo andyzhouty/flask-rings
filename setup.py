@@ -17,7 +17,7 @@ with open(path.join(basedir, 'README.md'), encoding="utf-8") as file_obj:
     long_description = file_obj.read()
 
 setup(
-    name="flask-rings",
+    name="Flask-Rings",
     version="0.1.5",
     url="https://github.com/ringsings/flask-rings",
     license="LGPL-3.0",
