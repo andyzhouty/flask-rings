@@ -4,11 +4,17 @@ Basic Usage
 Installation
 ------------
 
-As I haven't published ``flask-rings`` to pypi yet, you can only install flask-rings by this:
+You can only install flask-rings by using git:
 
 .. code:: bash
 
     $ pip install git+https://github.com/ringsings/flask-rings.git
+
+or PYPI
+
+.. code:: bash
+
+    $ pip install flask-rings
 
 Initialization
 --------------
