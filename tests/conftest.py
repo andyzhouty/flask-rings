@@ -12,7 +12,7 @@ def app():
     yield app
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture
 def rings(app):
     yield Rings(app)
 

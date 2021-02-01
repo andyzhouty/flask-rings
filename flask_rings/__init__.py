@@ -10,7 +10,7 @@ from wtforms import HiddenField
 
 
 def is_hidden_field_filter(field):
-        return isinstance(field, HiddenField)
+    return isinstance(field, HiddenField)
 
 
 class Rings(object):

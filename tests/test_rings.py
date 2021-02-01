@@ -1,17 +1,15 @@
 from flask import current_app
+from flask_rings import Rings
 
 
-def test_extension_init(client, rings):
-    assert "rings" in current_app.extensions
-
-    current_app.extensions = None
+def test_extension_init(client):
+    assert "rings" not in current_app.extensions
+    # test init_app
     app = current_app._get_current_object()
+    rings = Rings()
     rings.init_app(app)
     assert "rings" in current_app.extensions
 
-    delattr(current_app._get_current_object(), "extensions")
-    rings.init_app(app)
-    assert "rings" in current_app.extensions
 
 def test_load_css(client, rings):
     # test using jsdelivr cdn
@@ -23,5 +21,6 @@ def test_load_css(client, rings):
     assert "rings.min.css" in val
     assert "cdn.jsdelivr.net" not in val
 
-def test_rings_in_blueprints(client):
+
+def test_rings_in_blueprints(client, rings):
     assert "rings" in current_app.blueprints
