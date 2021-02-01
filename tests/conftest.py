@@ -7,9 +7,6 @@ from flask_rings import Rings
 def app():
     app = Flask(__name__)
     app.testing = True
-    # Ignore warnings from flask_sqlalchemy
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///"
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.secret_key = "top secret for testing"
 
     yield app

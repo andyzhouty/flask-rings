@@ -18,7 +18,7 @@ with open(path.join(basedir, 'README.md'), encoding="utf-8") as file_obj:
 
 setup(
     name="Flask-Rings",
-    version="0.1.1",
+    version="0.2.0",
     url="https://github.com/ringsings/flask-rings",
     license="LGPL-3.0",
     author="Andy Zhou",
@@ -32,7 +32,8 @@ setup(
     test_suite="tests",
     include_package_data=True,
     install_requires=[
-        'Flask'
+        "Flask",
+        "Flask-WTF"
     ],
     keywords="flask extension development rings",
     classifiers={

@@ -15,6 +15,7 @@ Contents
    :caption: Contents:
 
    basic
+   macros
 
 Author
 -------

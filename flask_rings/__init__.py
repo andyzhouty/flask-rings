@@ -4,7 +4,13 @@
     :copyright: (c) 2021 by Andy Zhou.
     :license: LGPL-3.0, see LICENSE for more details.
 """
-from flask import Flask, Markup
+from flask import Flask, Markup, Blueprint, current_app
+from flask.helpers import url_for
+from wtforms import HiddenField
+
+
+def is_hidden_field_filter(field):
+        return isinstance(field, HiddenField)
 
 
 class Rings(object):
@@ -17,14 +23,29 @@ class Rings(object):
             app.extensions = {}
         app.extensions["rings"] = self
         app.jinja_env.globals["rings"] = self
+        app.jinja_env.globals["rings_is_hidden_field"] = is_hidden_field_filter
 
         app.config.setdefault("RINGS_SERVE_LOCAL", app.debug)
+
+        # register blueprint for flask-rings.
+        blueprint = Blueprint(
+            "rings",
+            __name__,
+            template_folder='templates',
+            static_folder="static",
+            static_url_path="/rings" + app.static_url_path,
+        )
+        app.register_blueprint(blueprint)
 
     @staticmethod
     def load(css_url=None):
         """Load static files for rings"""
+        print(current_app.config["RINGS_SERVE_LOCAL"])
         if css_url is None:
             css_url = "https://cdn.jsdelivr.net/gh/ringsings/rings/rings.min.css"
+        if current_app.config["RINGS_SERVE_LOCAL"]:
+            css_url = url_for("rings.static", filename="css/rings.min.css")
+
         return Markup(
             """
             <link rel="stylesheet" href="{}">

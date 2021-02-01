@@ -1,0 +1,40 @@
+{% macro render_field(field, button_type="blue", class="") %}
+  {{ field.label }}<br>
+  {% if field.type == "SelectField" -%}
+    {{ field(class_="custom-checkbox " + class) | safe }}
+  {% elif field.type == "RadioField" -%}
+    {{ field(class_="custom-radio " + class) | safe }}
+  {% elif field.type == "BooleanField" -%}
+    {{ field(class_="custom-checkbox-switch " + class) | safe }}
+  {% elif field.type == "SubmitField" -%}
+    {{ field(class_="btn btn- " + button_type + class) | safe }}
+  {% else -%}
+    {{ field(class_="custom-text " + class) | safe }}
+  {%- endif %}
+  {% if field.errors -%}
+    {% for error in field.errors -%}
+      <small class="text-danger">{{ error }}</small>
+    {%- endfor %}
+  {%- endif %}
+  <br>
+{% endmacro %}
+
+{% macro render_form(form,
+                     action="",
+                     method="POST",
+                     class="",
+                     role="form",
+                     id="",
+                     submit_button_type="blue") %}
+    <form action="{{ action }}" method="{{ method }}" class="{{ class }}"
+          role="{{ role }}" id="{{ id }}">
+      {{ form.hidden_tag() }}
+      {% for field in form -%}
+        {% if not rings_is_hidden_field(field) -%}
+          {{ render_field(field) }}
+        {% elif field.type == "SubmitField" -%}
+          {{ render_field(field, button_type=submit_button_type) }}
+        {%- endif %}
+      {%- endfor %}
+    </form>
+{% endmacro %}
