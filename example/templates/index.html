@@ -1,14 +1,11 @@
 {% from "rings/wtf.html" import render_form %}
-<!doctype html>
-<html>
-    <head>
-        <title>Flask-Rings Demo</title>
-        {{ rings.load() }}
-    </head>
-    <body>
-        <div class="width-m-12">
-            <h1>Welcome to Flask-Rings Demo</h1>
-            {{ render_form(form) }}
-        </div>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+    Flask-Rings Demo
+{% endblock %}
+{% block content %}
+    <div class="align-center">
+        <h1>Welcome to Flask-Rings Demo</h1>
+        {{ render_form(form) }}
+    </div>
+{% endblock %}

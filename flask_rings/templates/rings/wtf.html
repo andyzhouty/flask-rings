@@ -1,5 +1,7 @@
 {% macro render_field(field, button_type="blue", class="") %}
-  {{ field.label }}<br>
+  {% if not field.type == "SubmitField"%}
+    {{ field.label }}<br>
+  {% endif %}
   {% if field.type == "SelectField" -%}
     {{ field(class_="custom-checkbox " + class) | safe }}
   {% elif field.type == "RadioField" -%}

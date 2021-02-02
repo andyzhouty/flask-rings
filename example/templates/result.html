@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Result {% endblock title %}
+{% block content %}
+    <div style="width:calc(100% - 75px);">
+        <p>Your username: <span class="text-bold">{{ username }}</span></p>
+        <p>Date: <span class="text-bold">{{ date }}</span></p>
+        <p>Textarea: <div class="text-bold">{{ textarea }}</div></p>
+    </div>
+{% endblock %}
