@@ -3,11 +3,6 @@ from flask_rings import Rings
 
 
 def test_extension_init(client):
-    assert "rings" not in current_app.extensions
-    # test init_app
-    app = current_app._get_current_object()
-    rings = Rings()
-    rings.init_app(app)
     assert "rings" in current_app.extensions
 
 
@@ -22,5 +17,5 @@ def test_load_css(client, rings):
     assert "cdn.jsdelivr.net" not in val
 
 
-def test_rings_in_blueprints(client, rings):
+def test_rings_in_blueprints(client):
     assert "rings" in current_app.blueprints

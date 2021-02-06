@@ -59,3 +59,33 @@ Args
     :param role: <form> role attribute.
     :param id: <form> id attribute.
     :param submit_button_type: The style of the submit button
+
+render_nav_item()
+-----------------
+
+Render a navigation item in a navigation bar.
+
+Example
+^^^^^^^
+
+.. code:: jinja
+
+    {% from 'rings/nav.html' import render_nav_item %}
+
+    <nav>
+        <ul>
+            {{ render_nav_item("endpoint", "label") }}
+        </ul>
+    </nav>
+
+Args
+^^^^
+
+.. py:function:: render_nav_item(endpoint, label, label_style="white", tag="", tag_style="blue")
+
+    :param endpoint: The endpoint used to generate URL.
+    :param label: The label of the navigation item.
+    :param label_style: Custom text style for ``label``
+    :param tag: The tag to display
+    :param tag_style: Custom text style for ``tag``
+

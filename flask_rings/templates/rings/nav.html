@@ -1,0 +1,11 @@
+{% macro render_nav_item(endpoint, label, label_style="white", tag="", tag_style="blue") %}
+  <li>
+    <a class="text-{{ label_style }} {% if request.endpoint and request.endpoint == endpoint %}active{% endif %}"
+      href="{{ url_for(endpoint, **kwargs) }}">
+      {{ label }}
+      {% if tag %}
+        <span class="tag tag-{{ tag_style }}">{{ tag }}</span>
+      {% endif %}
+    </a>
+  </li>
+{% endmacro %}
