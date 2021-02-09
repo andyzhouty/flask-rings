@@ -1,0 +1,7 @@
+{% macro render_flashed_message(message, category="info") %}
+  <div class="alert-box alert-box-{{ category }}">
+    <button type="button" class="btn btn-{{ category }} float-right" onclick="this.parentNode.style.display = 'none';">&times;
+    </button>
+    {{ message }}
+  </div>
+{% endmacro %}

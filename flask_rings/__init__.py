@@ -31,7 +31,7 @@ class Rings(object):
         blueprint = Blueprint(
             "rings",
             __name__,
-            template_folder='templates',
+            template_folder="templates",
             static_folder="static",
             static_url_path="/rings" + app.static_url_path,
         )
@@ -42,7 +42,7 @@ class Rings(object):
         """Load static files for rings"""
         print(current_app.config["RINGS_SERVE_LOCAL"])
         if css_url is None:
-            css_url = "https://cdn.jsdelivr.net/gh/rice0208/rings/rings.min.css"
+            css_url = "https://cdn.jsdelivr.net/gh/rice0208/Rings@master/rings-less.css"
         if current_app.config["RINGS_SERVE_LOCAL"]:
             css_url = url_for("rings.static", filename="css/rings.min.css")
 

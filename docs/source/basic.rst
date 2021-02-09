@@ -85,3 +85,20 @@ If you want a ``base.html``, here's an example:
             {% block content %}{% endblock %}
         </body>
     </html>
+
+Using custom CDN
+----------------
+
+You can configure custom CDN by passing arguments to ``rings.load()``
+
+For example:
+
+.. code:: jinja
+    {{ rings.load(css_url="https://raw.sevencdn.com/rice0208/Rings/master/rings.min.css") }}
+
+Using local resources
+---------------------
+
+You can set the ``RINGS_SERVE_LOCAL`` to ``True`` to use the resources provided by Flask-Rings.
+
+Note that ``RINGS_SERVE_LOCAL`` defaults to ``True`` if you have the flask debugger on.

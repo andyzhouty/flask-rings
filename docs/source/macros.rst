@@ -89,3 +89,28 @@ Args
     :param tag: The tag to display
     :param tag_style: Custom text style for ``tag``
 
+render_flashed_message()
+------------------------
+
+Render a flashed message.
+
+Example
+^^^^^^^
+
+.. code:: jinja
+
+    {% from 'rings/utils.html' import render_flashed_message %}
+
+    {% for message in get_flashed_messages(with_categories=True) %}
+        {% if message[0] %}
+            {% set category = message[0] %}
+        {% else %}
+            {% set category = 'info' %}
+        {% endif %}
+        {{ render_flashed_message(message[1], category) }}
+    {% endfor %}
+
+.. py:function:: render_flashed_message(message, category="info")
+
+    :param message: The message to render.
+    :param category: The category of the message, defaults to ``info``

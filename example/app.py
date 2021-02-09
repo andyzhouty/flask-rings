@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash
 from flask_rings import Rings
 from wtforms import StringField, PasswordField, TextAreaField, DateField, SubmitField
 from flask_wtf import FlaskForm
@@ -25,6 +25,7 @@ def index():
         textarea = form.textarea.data
         date = form.date.data
         return render_template("result.html", username=username, textarea=textarea, date=date)
+    flash("This is flash!")
     return render_template("index.html", form=form)
 
 

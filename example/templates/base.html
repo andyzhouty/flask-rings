@@ -1,3 +1,4 @@
+{% from "rings/utils.html" import render_flashed_message %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         {% block styles %}
-            {{ rings.load() }}
+            {{ rings.load_css() }}
         {% endblock %}
 
         <title>
@@ -15,6 +16,16 @@
         {% endblock %}
     </head>
     <body>
+        {% block flashed_messages %}
+            {% for message in get_flashed_messages(with_categories=True) %}
+                {% if message[0] != 'message' and message[0] %}
+                    {% set category = message[0] %}
+                {% else %}
+                    {% set category = 'info' %}
+                {% endif %}
+                {{ render_flashed_message(message[1], category) }}
+            {% endfor %}
+        {% endblock %}
         {% block content %}{% endblock %}
     </body>
 </html>
