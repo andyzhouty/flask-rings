@@ -45,7 +45,7 @@ or
 Resource loader
 ---------------
 
-Flask-Rings a helper for loading the CSS of Rings.
+Flask-Rings provides a helper for loading the CSS of Rings.
 Call it in your base template, for example:
 
 .. code:: jinja
@@ -114,12 +114,12 @@ Available settings
 This table will contain the available settings for Flask-Rings
 
 
-+-------------------+---------+----------------------------+
-| Setting Name      | Default | Description                |
-+===================+=========+============================+
-| RINGS_SERVE_LOCAL | True    | Whether Flask-Rings should |
-|                   |         | use the local resource.    |
-+-------------------+---------+----------------------------+
-| RINGS_VERSION     | 0.2.0   | Which version Flask-Rings  |
-|                   |         | should use.                |
-+-------------------+---------+----------------------------+
++-------------------+-----------+----------------------------+
+| Setting Name      | Default   | Description                |
++===================+===========+============================+
+| RINGS_SERVE_LOCAL | app.debug | Whether Flask-Rings should |
+|                   |           | use the local resource.    |
++-------------------+-----------+----------------------------+
+| RINGS_VERSION     | 0.2.0     | Which version Flask-Rings  |
+|                   |           | should use.                |
++-------------------+-----------+----------------------------+
