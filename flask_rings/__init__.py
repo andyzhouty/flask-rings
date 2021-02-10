@@ -26,6 +26,7 @@ class Rings(object):
         app.jinja_env.globals["rings_is_hidden_field"] = is_hidden_field_filter
 
         app.config.setdefault("RINGS_SERVE_LOCAL", app.debug)
+        app.config.setdefault("RINGS_VERSION", "0.2.0")
 
         # register blueprint for flask-rings.
         blueprint = Blueprint(
@@ -42,7 +43,11 @@ class Rings(object):
         """Load static files for rings"""
         print(current_app.config["RINGS_SERVE_LOCAL"])
         if css_url is None:
-            css_url = "https://cdn.jsdelivr.net/gh/rice0208/Rings@master/rings-less.css"
+            css_url = (
+                "https://cdn.jsdelivr.net/gh/rice0208/Rings@{}/rings.min.css".format(
+                    current_app.config["RINGS_VERSION"]
+                )
+            )
         if current_app.config["RINGS_SERVE_LOCAL"]:
             css_url = url_for("rings.static", filename="css/rings.min.css")
 

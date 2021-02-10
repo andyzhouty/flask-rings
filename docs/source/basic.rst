@@ -102,3 +102,24 @@ Using local resources
 You can set the ``RINGS_SERVE_LOCAL`` to ``True`` to use the resources provided by Flask-Rings.
 
 Note that ``RINGS_SERVE_LOCAL`` defaults to ``True`` if you have the flask debugger on.
+
+Using different versions
+------------------------
+
+To use different versions of Rings, you can set the ``RINGS_VERSION`` to the version you want.
+
+Available settings
+------------------
+
+This table will contain the available settings for Flask-Rings
+
+
++-------------------+---------+----------------------------+
+| Setting Name      | Default | Description                |
++===================+=========+============================+
+| RINGS_SERVE_LOCAL | True    | Whether Flask-Rings should |
+|                   |         | use the local resource.    |
++-------------------+---------+----------------------------+
+| RINGS_VERSION     | 0.2.0   | Which version Flask-Rings  |
+|                   |         | should use.                |
++-------------------+---------+----------------------------+
