@@ -1,0 +1,3 @@
+graft flask_rings/static
+graft flask_rings/templates
+include LICENSE
